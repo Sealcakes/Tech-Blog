@@ -3,15 +3,15 @@ const { Blog, User, Comment } = require('../../models');
 const { v4: uuidv4 } = require('uuid');
 
 router.post('/createpost', async (req, res) => {
-    const userData = req.session.user;
-
+    const user = req.session.user;
+    console.log(user);
     try {
         const blogPost = await Blog.create({
             title: req.body.title,
             description: req.body.description,
             content: req.body.description,
             id: uuidv4(),
-            author: userData.id,
+            author: user.id,
         });
 
         res.status(200).json(blogPost);

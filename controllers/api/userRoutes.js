@@ -52,8 +52,9 @@ router.post('/login', async (req, res) => {
         }
 
         req.session.save(() => {
+            req.session.user = userData;
             req.session.logged_in = true;
-            res.redirect('/dashboard');
+            res.status(200).redirect('/dashboard');
         })
 
     } catch (err) {
