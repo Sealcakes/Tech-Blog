@@ -34,4 +34,16 @@ router.get('/signup', async (req, res) => {
     });
 });
 
+router.get('/createpost', async (req, res) => {
+    if (req.session.logged_in) {
+        res.status(200).render('createpost', {
+            title: 'Create Blog Post',
+            style: 'createpost.css',
+        })
+    } else {
+        res.status(200).redirect('login');
+    }
+    
+})
+
 module.exports = router;

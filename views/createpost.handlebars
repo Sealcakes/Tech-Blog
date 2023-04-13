@@ -11,11 +11,11 @@
         </nav>
         <h1>The Tech Blog</h1>
     </header>
-    <h1>DASHBOARD</h1>
-    <form action="/createpost">
+    <h1>Create New Blog Post</h1>
+    <form action="/api/blog/createpost" method="post">
+        <input type="text" name="title" placeholder="Title">
+        <input type="text" name="description" placeholder="Description">
+        <input type="text" name="content" placeholder="Content">
         <button type="submit">Create Post</button>
     </form>
-    <h2>Your Blog Posts</h2>
-    
-
 </body>
