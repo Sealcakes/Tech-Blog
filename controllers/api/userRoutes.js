@@ -12,9 +12,9 @@ router.post('/createaccount', async (req, res) => {
             password: req.body.password,
         });
 
-        req.session.save(() => {
-            res.redirect('/login');
-        });
+        
+        res.redirect('/login');
+        
 
     } catch (err) {
         console.log(err)
