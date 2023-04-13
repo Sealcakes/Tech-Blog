@@ -1,10 +1,12 @@
 const router = require('express').Router();
-const { User } = require('../../models/User');
+const { v4: uuidv4 } = require('uuid');
+const User = require('../../models/User');
 
 // creates a new account
 router.post('/createaccount', async (req, res) => {
     try {
         const userData = await User.create({
+            id: uuidv4(),
             username: req.body.username,
             email: req.body.email,
             password: req.body.password,
@@ -15,6 +17,7 @@ router.post('/createaccount', async (req, res) => {
         });
 
     } catch (err) {
+        console.log(err)
         res.status(500).json(err);
     }
 })
@@ -54,6 +57,7 @@ router.post('/login', async (req, res) => {
         })
 
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });

@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connections');
 const bcrypt = require('bcrypt');
+const { v4: uuidv4 } = require('uuid');
 
 class User extends Model {
     checkPassword(loginPw) {
@@ -12,7 +13,6 @@ User.init(
     {
         id: {
             type: DataTypes.UUID,
-            defaultValue: sequelize.UUIDV4,
             allowNull: false,
             primaryKey: true,
         },

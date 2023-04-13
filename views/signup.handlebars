@@ -5,18 +5,19 @@
                 <li><a href="/">HOME</a></li>
                 <li><a href="/dashboard">DASHBOARD</a></li>
             </ul>
-            <form action="/signup">
-                <button>Signup</button>
+            <form action="/login">
+                <button>Login</button>
             </form>
         </nav>
         <h1>The Tech Blog</h1>
     </header>
-    <H1>LOGIN PAGE</H1>
+    <H1>SIGNUP PAGE</H1>
     <div class="login-container">
-        <form action="/api/users/login" method="post">
+        <form action="/api/users/createaccount" method="post">
+            <input type="username" name="username" placeholder="Username">
             <input type="email" name="email" placeholder="Email"/>
             <input type="password" name="password" placeholder="Password">
-            <button type="submit">Login</button>
+            <button type="submit">Create Account</button>
         </form>
     </div>
 </body>

@@ -7,6 +7,7 @@ const exphbs = require('express-handlebars');
 const session = require('express-session');
 const sequelize = require('./config/connections');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const flash = require('connect-flash');
 const path = require('path');
 const routes = require('./controllers');
 
@@ -32,6 +33,7 @@ const sess = {
 
 // use session configuration with express-session
 app.use(session(sess));
+app.use(flash());
 
 // create a new express-handlebars view engine
 const hbs = exphbs.create();
