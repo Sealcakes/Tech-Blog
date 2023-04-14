@@ -41,4 +41,17 @@ router.post('/createcomment', async (req, res) => {
     }
 });
 
+router.get('/allblogposts', async (req, res) => {
+
+    try {
+        const allBlogPosts = await Blog.findAll();
+
+        res.status(200).json(allBlogPosts);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
+
+
 module.exports = router;

@@ -1,10 +1,25 @@
 const router = require('express').Router();
+const { User, Blog, Comment } = require('../models')
 
 
 router.get('/', async (req, res) => {
+    
+    const userData = req.session.user;
+    const allBlogPosts = await Blog.findAll({
+        order: [['createdAt', 'DESC']],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    });
+    
     res.status(200).render('home', {
         title: 'Tech Blog',
         style: 'home.css',
+        user: userData,
+        blogs: allBlogPosts,
     });
 });
 
