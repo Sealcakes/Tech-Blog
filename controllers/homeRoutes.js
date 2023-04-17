@@ -39,6 +39,7 @@ router.get('/login', async (req, res) => {
     res.status(200).render('login', {
         title: 'Login',
         style: 'login.css',
+        messages: req.flash('message'),
     });
 });
 

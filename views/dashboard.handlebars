@@ -16,6 +16,21 @@
         <button type="submit">Create Post</button>
     </form>
     <h2>Your Blog Posts</h2>
+    <div class="blog-post-container">
+            {{#each blogs}}
+            <div class="col">
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-body">
+                            <a href="/api/blog/{{{dataValues.id}}}"><h5 class="card-title">{{{dataValues.title}}}</h5></a>
+                            <p class="card-text" style="font-style: italic;">{{{dataValues.description}}}</p>
+                            <p class="card-text" style="font-size: smaller;">{{{dataValues.createdAt}}}</p>
+                            <button class="submit">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
     
 
 </body>

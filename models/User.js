@@ -19,7 +19,10 @@ User.init(
         email: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
+            unique: {
+                args: true,
+                msg: "Email address is already in use",
+            },
             validate: {
                 isEmail: true,
             },

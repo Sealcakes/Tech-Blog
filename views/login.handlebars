@@ -12,6 +12,11 @@
         <h1>The Tech Blog</h1>
     </header>
     <H1>LOGIN PAGE</H1>
+    <div>
+        {{#if messages}}
+        <div class="alert alert-danger">{{messages}}</div>
+        {{/if}}
+    </div>
     <div class="login-container">
         <form action="/api/users/login" method="post">
             <input type="email" name="email" placeholder="Email"/>

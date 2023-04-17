@@ -12,8 +12,12 @@ router.post('/createaccount', async (req, res) => {
             password: req.body.password,
         });
 
-        
-        res.redirect('/login');
+
+        req.session.save(() => {
+            req.session.user = userData;
+            req.session.logged_in = true;
+            res.status(200).redirect('/dashboard');
+        })
         
 
     } catch (err) {
@@ -47,7 +51,7 @@ router.post('/login', async (req, res) => {
         // if the password does not match, return an error and redirect back to the login page
         if (!validPassword) {
             req.flash('message', 'Incorrect Email or Password!');
-            res.redirect('./login');
+            res.redirect('/login');
             return
         }
 
